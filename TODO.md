@@ -87,6 +87,9 @@
 - [X] Add leader traits
 - [X] Replace `Tile#features` with `Registry` pattern - not sure on how useful this is, since it'll necessitate a refactor in `World#build`/`Generator`.
 - [X] Fix any tests that rely on global instances.
+- [X] Add `provider` to `Yield`s. - Added `YieldValue`s to `Yield`s
+- [X] Refactor `Yield`s and `YieldModifier`s so that only `Yield` is used and update all code to make sure it works with that mechanism. - Add `BaseYield` functionality for `Unit`s to avoid this problem.
+- [X] Change base-goody-hut-unit to pick the unit based on `Rule`s.
 - [ ] Abstract World class to allow implementation of hexes rather than squares and other world generators.
 - [ ] Renderer interface - I imagine this to be a separate application that has this repo as a dependency. - Look at NodeGUI - need a canvas or something similar to be implemented. Or wait for Electron to adopt Node 14...
 - [ ] Input management (keyboard/mouse) - tied to renderer?
@@ -121,6 +124,9 @@
 - [ ] Add `Corruption` yield.
 - [ ] Fix units having `Fortified` applied loads of times.
 - [ ] Add `GoTo` action for `Unit`s.
-- [ ] Add `provider` to `Yield`s.
 - [ ] Add `CityWalls` `Defence` `YieldModifier`.
-- [ ] Refactor `Yield`s and `YieldModifier`s so that only `Yield` is used and update all code to make sure it works with that mechanism.
+- [ ] Look at availability bulid rules and change so all must pass so e.g. Spearman can be overridden to Phalanx for one Civ.
+- [ ] Add pathfinding tests where two comparable routes exist one taking advantage of roads etc
+- [ ] Move client creation from civ1-player, it should be the client that sets this up
+- [ ] Add obsolescence and provider maps for `Unit`s, `CityImprovement`s, `Advance`s etc - This would help displaying civilopedia data
+- [ ] Add unique ID (UUID?) to `DataObject`s so they can be referenced easily by `Client`s.

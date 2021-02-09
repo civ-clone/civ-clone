@@ -23,7 +23,7 @@ of Electron again (although not exclusively, but that should allow me to get a r
 quickly).
 
 The aim will be to have a string of dependencies so that, for example, `civ-clone-electron` would depend on
-`electron-renderer` and the `base-civ1-*` packages and would be able to give an experience that's comparable with the
+`electron-renderer` and the `civ1-*` packages and would be able to give an experience that's comparable with the
 original Civilization. Then the aim would be to make similar packages for the other Civilization games so that all the
 core concepts and functionality can be easily transplanted to older games. Like Civ1 but want to add religions? Done.
 Want to add custom units for the Mongols? Easy.

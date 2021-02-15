@@ -96,7 +96,7 @@
 - [ ] i18n/l10n - tied to renderer.
 - [ ] Remote network players.
 - [ ] Difficulties.
-- [ ] Human players - this is likely dependent on a renderer, although perhaps make it playable within a TTY?
+- [ ] Human players - this is likely dependent on a renderer, although perhaps make it playable within a TTY? - TTY would still be a renderer...
 - [ ] Write more tests.
 - [ ] Feature parity with Civilization.
 - [ ] Add more units.
@@ -125,8 +125,13 @@
 - [ ] Fix units having `Fortified` applied loads of times.
 - [ ] Add `GoTo` action for `Unit`s.
 - [ ] Add `CityWalls` `Defence` `YieldModifier`.
-- [ ] Look at availability bulid rules and change so all must pass so e.g. Spearman can be overridden to Phalanx for one Civ.
+- [ ] Look at availability build rules and change so all must pass so e.g. Spearman can be overridden to Phalanx for one Civ.
 - [ ] Add pathfinding tests where two comparable routes exist one taking advantage of roads etc
 - [ ] Move client creation from civ1-player, it should be the client that sets this up
-- [ ] Add obsolescence and provider maps for `Unit`s, `CityImprovement`s, `Advance`s etc - This would help displaying civilopedia data
-- [ ] Add unique ID (UUID?) to `DataObject`s so they can be referenced easily by `Client`s.
+- [ ] Add obsolescence and provider maps for `Unit`s, `CityImprovement`s, `Advance`s etc - This would help with displaying "civilopedia" data
+- [ ] Add unique ID (UUID?) to `DataObject`s, so they can be referenced easily by `Client`s.
+- [ ] Perhaps replace `Generator` (`core-world-generator`) with `Provider` and have `Generator` be a subset. Naming makes more sense for loaders that way...
+- [ ] Update `Sleep` to use `Unit#visibility` for waking.
+- [ ] Modify `PlayerWorld` to clone the `Tile` on registration so that future changes aren't immediately visible (via `Rule`).
+- [ ] When client data is sent, filter data by `PlayerWorld` `Tile`s.
+- [ ] Use `Leader` `Trait`s to control `AIClient` functionality.

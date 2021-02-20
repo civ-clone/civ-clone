@@ -93,6 +93,9 @@
 - [X] Add rules to wake enemy units that are `Sleep`ing when moving within their visible range.
 - [X] Add unique ID (UUID?) to `DataObject`s, so they can be referenced easily by `Client`s.
 - [X] Move client creation from civ1-player, it should be the client that sets this up
+- [X] Fix units having `Fortified` applied loads of times.
+- [X] Update `Sleep` to use `Unit#visibility` for waking.
+- [X] Re-work `DataObject` to handle recursive structures by sending a map and the objects separately.
 - [ ] Abstract World class to allow implementation of hexes rather than squares and other world generators.
 - [ ] Renderer interface - I imagine this to be a separate application that has this repo as a dependency. - Look at NodeGUI - need a canvas or something similar to be implemented. Or wait for Electron to adopt Node 14...
 - [ ] Input management (keyboard/mouse) - tied to renderer?
@@ -124,16 +127,15 @@
 - [ ] Add more `Interaction`s and use this data to inform AI decisions on trusting another player.
 - [ ] Convert `activate`, `disband`, etc from methods to `Action`s for `Unit`s.
 - [ ] Add `Corruption` yield.
-- [ ] Fix units having `Fortified` applied loads of times.
 - [ ] Add `GoTo` action for `Unit`s.
 - [ ] Add `CityWalls` `Defence` `YieldModifier`.
 - [ ] Look at availability build rules and change so all must pass so e.g. Spearman can be overridden to Phalanx for one Civ.
 - [ ] Add pathfinding tests where two comparable routes exist one taking advantage of roads etc
 - [ ] Add obsolescence and provider maps for `Unit`s, `CityImprovement`s, `Advance`s etc - This would help with displaying "civilopedia" data
 - [ ] Perhaps replace `Generator` (`core-world-generator`) with `Provider` and have `Generator` be a subset. Naming makes more sense for loaders that way...
-- [ ] Update `Sleep` to use `Unit#visibility` for waking.
 - [ ] Modify `PlayerWorld` to clone the `Tile` on registration so that future changes aren't immediately visible (via `Rule`).
 - [ ] When client data is sent, filter data by `PlayerWorld` `Tile`s.
 - [ ] Use `Leader` `Trait`s to control `AIClient` functionality.
 - [ ] Change `City`s to slice indices `0`, `4`, `20` amd `24` from the available `Tile` to match civ 1. Manage this via `Rule`s.
 - [ ] Look at using workers to generate worlds and pick start tiles to prevent UI blocking.
+- [ ] Add Unit#status to store Action 

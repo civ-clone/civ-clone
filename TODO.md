@@ -96,9 +96,10 @@
 - [X] Fix units having `Fortified` applied loads of times.
 - [X] Update `Sleep` to use `Unit#visibility` for waking.
 - [X] Re-work `DataObject` to handle recursive structures by sending a map and the objects separately.
+- [X] Renderer interface - I imagine this to be a separate application that has this repo as a dependency. - Look at NodeGUI - need a canvas or something similar to be implemented. Or wait for Electron to adopt Node 14...
+- [X] Input management (keyboard/mouse) - tied to renderer?
+- [X] Add Unit#status to store `Busy` `Action`.
 - [ ] Abstract World class to allow implementation of hexes rather than squares and other world generators.
-- [ ] Renderer interface - I imagine this to be a separate application that has this repo as a dependency. - Look at NodeGUI - need a canvas or something similar to be implemented. Or wait for Electron to adopt Node 14...
-- [ ] Input management (keyboard/mouse) - tied to renderer?
 - [ ] i18n/l10n - tied to renderer.
 - [ ] Remote network players.
 - [ ] Difficulties.
@@ -138,4 +139,5 @@
 - [ ] Use `Leader` `Trait`s to control `AIClient` functionality.
 - [ ] Change `City`s to slice indices `0`, `4`, `20` amd `24` from the available `Tile` to match civ 1. Manage this via `Rule`s.
 - [ ] Look at using workers to generate worlds and pick start tiles to prevent UI blocking.
-- [ ] Add Unit#status to store Action 
+- [ ] Make the transfer data more efficient - send diffs?
+- [ ] Break down interface to make it data driven and component based so that other plugins can easily extend the interface.

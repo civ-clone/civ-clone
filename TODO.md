@@ -12,7 +12,7 @@
 - [X] Work on city build list.
 - [X] Combat.
 - [X] When building World, ensure there are enough starting squares.
-- [X] Add user-definable rulesets.
+- [X] Add user-definable rules.
 - [X] Non-human players.
 - [X] Write tests.
 - [X] Fix map tiling.
@@ -99,11 +99,13 @@
 - [X] Renderer interface - I imagine this to be a separate application that has this repo as a dependency. - Look at NodeGUI - need a canvas or something similar to be implemented. Or wait for Electron to adopt Node 14...
 - [X] Input management (keyboard/mouse) - tied to renderer?
 - [X] Add Unit#status to store `Busy` `Action`.
+- [X] Human players - this is likely dependent on a renderer, although perhaps make it playable within a TTY? - TTY would still be a renderer...
+- [X] When client data is sent, filter data by `PlayerWorld` `Tile`s.
+- [X] Make the transfer data more efficient - send diffs?
 - [ ] Abstract World class to allow implementation of hexes rather than squares and other world generators.
 - [ ] i18n/l10n - tied to renderer.
 - [ ] Remote network players.
 - [ ] Difficulties.
-- [ ] Human players - this is likely dependent on a renderer, although perhaps make it playable within a TTY? - TTY would still be a renderer...
 - [ ] Write more tests.
 - [ ] Feature parity with Civilization.
 - [ ] Add more units.
@@ -135,9 +137,10 @@
 - [ ] Add obsolescence and provider maps for `Unit`s, `CityImprovement`s, `Advance`s etc - This would help with displaying "civilopedia" data
 - [ ] Perhaps replace `Generator` (`core-world-generator`) with `Provider` and have `Generator` be a subset. Naming makes more sense for loaders that way...
 - [ ] Modify `PlayerWorld` to clone the `Tile` on registration so that future changes aren't immediately visible (via `Rule`).
-- [ ] When client data is sent, filter data by `PlayerWorld` `Tile`s.
 - [ ] Use `Leader` `Trait`s to control `AIClient` functionality.
 - [ ] Change `City`s to slice indices `0`, `4`, `20` amd `24` from the available `Tile` to match civ 1. Manage this via `Rule`s.
 - [ ] Look at using workers to generate worlds and pick start tiles to prevent UI blocking.
-- [ ] Make the transfer data more efficient - send diffs?
 - [ ] Break down interface to make it data driven and component based so that other plugins can easily extend the interface.
+- [ ] Add victory conditions.
+- [ ] Add `RuleSet`s and toggleable statuses for `Rule`s so that they can be easily toggled on/off in groups via the interface.
+- [ ] Re-think the `Tile` `Yield`s, maybe `Happiness` etc don't need to be on all tiles unless specifically registered?

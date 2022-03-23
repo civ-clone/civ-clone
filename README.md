@@ -31,30 +31,24 @@ The world generation is currently pretty rudimentary, but would be easy to repla
 
 ### Missing features
 
-- Changing governments (from an interface point of view)
 - Diplomatic negotiation (and `Diplomat`s)
-- A bunch of the units (a bunch of units up to `Musketeers` are available, but nothing beyond that)
-- A bunch of advances (up to `Navigation` and `Gunpowder`)
 - `Caravan`s and trade routes
 - Save and load
 - Play on Earth
 - Charts and civilization-wide breakdowns/info
-- Changing tax/research/luxury rates
 - Changing the worked tiles in a city and employing entertainers/tax men, scientists
 - Selling city improvements
-- Combat results made clear
 - Victory conditions
 - Disabling auto End of Turn
 - Palace
-- Activating `Unit`s on the map/city screen
-- Unit status display (like I for irrigating, etc)
-- Spending Gold to buy items
+- Activating `Unit`s on the city screen
 - Probably a bunch more stuff, but the stuff above is next on the hit list
 
 ### Broken features
 
 - Navigation over terrain that you don't have the moves for lets you keep trying until you're successful
 - Defeated units still appear on the map
+- Spending `Gold` on stuff in `City`s, it just always works!
 
 ### Currently available
 
@@ -66,13 +60,17 @@ The world generation is currently pretty rudimentary, but would be easy to repla
 - Goody huts (Gold, Advance, Unit - Horseman or Swordman, Advanced Tribe)
 - All 14 Civilizations from the original game (with "modern" city names - where applicable)
 - Civ 5-style notification system for delaying choosing advances/choosing what to build in cities
+- Change governments and utilise the features of each
+- Change the `Tax`, `Research`, `Luxuries` rates
 
 ## How to get this running:
 
 ### Prerequisites
 
-- `NodeJS` and `npm` commands.
+- `NodeJS`, `npm` and `yarn` commands.
 - A copy of the original Civilization game files.
+
+__Note: `yarn` is recommended for the `electron-renderer` package again as `npm install`/`npm upgrade` seem to struggle to resolve without setting my machine on fire...__
 
 ### Process
 
@@ -80,11 +78,11 @@ Clone the [@civ-clone/electron-renderer](https://github.com/civ-clone/electron-r
 [@civ-clone/civ1-asset-extractor](https://github.com/civ-clone/civ1-asset-extractor) components, copy `TER257.PIC` and
 `SP257.PIC` files from the original game files into the root of where you cloned `civ1-asset-extractor`. 
 
-avigate via the commandline to that directory and run `npm install` and `node index.js`, which should install the
+Navigate via the commandline to that directory and run `npm install` and `node index.js`, which should install the
 required dependencies and generate all the required image assets in the `assets/` directory. That `assets/` directory
 needs to then be copied to the `electron-renderer` project into the `view/` directory.
 
-Once the assets are in place, you need to navigate to the `electron-renderer` directory and run `npm install` and
+Once the assets are in place, you need to navigate to the `electron-renderer` directory and run `yarn install` and
 `npm run start`. You should be good to go!
 
 ## Core Concepts

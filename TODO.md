@@ -102,17 +102,20 @@
 - [X] Human players - this is likely dependent on a renderer, although perhaps make it playable within a TTY? - TTY would still be a renderer...
 - [X] When client data is sent, filter data by `PlayerWorld` `Tile`s.
 - [X] Make the transfer data more efficient - send diffs?
+- [X] Add more city improvements.
+- [X] Add more units.
+- [X] Add starter technologies - need to read why Civ allocates these and set up `Rules` within `base-science`.
+- [X] Add more variance in the worlds that are generated again - no islands appear to be generated no matter the settings used.
+- [X] You can't activate a previously `Fortified` `Unit`.
+- [X] `ClearForest` is broken (and presumably `ClearSwamp`, `ClearJungle`, `PlantForest` too)
 - [ ] Abstract World class to allow implementation of hexes rather than squares and other world generators.
 - [ ] i18n/l10n - tied to renderer.
 - [ ] Remote network players.
 - [ ] Difficulties.
 - [ ] Write more tests.
 - [ ] Feature parity with Civilization.
-- [ ] Add more units.
-- [ ] Add more city improvements.
 - [ ] Add Barbarians.
 - [ ] Look at modular AI info for plugin Unit providing data/weightings on what to do with the unit?
-- [ ] Add starter technologies - need to read why Civ allocates these and set up `Rules` within `base-science`.
 - [ ] Add diplomacy
 - [ ] Modify AI to adjust trade rates
 - [ ] Add `load` and `save` methods to `World` - need to consider the available plugins when saving/loading - mandating the exact plugins seems too much, but need to consider this before working on this functionality.
@@ -125,7 +128,6 @@
 - [ ] Add effects for `GreatWall`.
 - [ ] Add revolution delay in changing governments.
 - [ ] Add effects for `Pyramids`.
-- [ ] Add more variance in the worlds that are generated again - no islands appear to be generated no matter the settings used.
 - [ ] Add `Negotiation` to `core-diplomacy`.
 - [ ] Add more `Interaction`s and use this data to inform AI decisions on trusting another player.
 - [ ] Convert `activate`, `disband`, etc from methods to `Action`s for `Unit`s.
@@ -136,7 +138,7 @@
 - [ ] Add pathfinding tests where two comparable routes exist one taking advantage of roads etc
 - [ ] Add obsolescence and provider maps for `Unit`s, `CityImprovement`s, `Advance`s etc - This would help with displaying "civilopedia" data
 - [ ] Perhaps replace `Generator` (`core-world-generator`) with `Provider` and have `Generator` be a subset. Naming makes more sense for loaders that way...
-- [ ] Modify `PlayerWorld` to clone the `Tile` on registration so that future changes aren't immediately visible (via `Rule`).
+- [-] Modify `PlayerWorld` to clone the `Tile` on registration so that future changes aren't immediately visible (via `Rule`). - Started
 - [ ] Use `Leader` `Trait`s to control `AIClient` functionality.
 - [ ] Change `City`s to slice indices `0`, `4`, `20` amd `24` from the available `Tile` to match civ 1. Manage this via `Rule`s.
 - [ ] Look at using workers to generate worlds and pick start tiles to prevent UI blocking.

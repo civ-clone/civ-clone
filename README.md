@@ -39,16 +39,14 @@ The world generation is currently pretty rudimentary, but would be easy to repla
 - Changing the worked tiles in a city and employing entertainers/tax men, scientists
 - Selling city improvements
 - Victory conditions
-- Disabling auto End of Turn
 - Palace
 - Activating `Unit`s on the city screen
 - Probably a bunch more stuff, but the stuff above is next on the hit list
 
 ### Broken features
 
-- Navigation over terrain that you don't have the moves for lets you keep trying until you're successful
-- Defeated units still appear on the map
-- Spending `Gold` on stuff in `City`s, it just always works!
+- `Happiness` and `Unhappiness` don't work as per Civ1.
+- `Bomber`s don't function correctly and can be attacked by any units.
 
 ### Currently available
 
@@ -67,10 +65,11 @@ The world generation is currently pretty rudimentary, but would be easy to repla
 
 ### Prerequisites
 
-- `NodeJS`, `npm` and `yarn` commands.
+- `node`, `npm` and `yarn` commands.
 - A copy of the original Civilization game files.
 
-__Note: `yarn` is recommended for the `electron-renderer` package again as `npm install`/`npm upgrade` seem to struggle to resolve without setting my machine on fire...__
+__Note: `yarn` is recommended for the `electron-renderer` package again as `npm install`/`npm upgrade` seem to struggle
+to resolve without setting my machine on fire...__
 
 ### Process
 

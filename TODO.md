@@ -149,3 +149,8 @@
 - [ ] Add continent identifiers.
 - [ ] Break `civ1-asset-extractor` down to be able to use as a library from within the renderer.
 - [ ] Add renderer "Theme"s that could (for example) be Civ1, Civ2, FreeCiv, custom, etc.
+- [ ] Build a DataProvider mechanism to replace `transport.receive()` mechanism in `electron-renderer`.
+  - [ ] Build a Transport mechanism to replace the basic transport object (ElectronTransport, or NetworkTransport, WorkerTransport would build on this for example)
+  - [ ] Try keeping a large object around, and current strategy, make it easier to trial alternatives - perhaps track memory usage...
+- [ ] Break down `ElectronClient` into another `Client` type that `ElectronClient` can inherit from.
+- [ ] Create a WebClient.

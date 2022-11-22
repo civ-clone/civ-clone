@@ -40,13 +40,17 @@ The world generation is currently pretty rudimentary, but would be easy to repla
 - Selling city improvements
 - Victory conditions
 - Palace
-- Activating `Unit`s on the city screen
-- Probably a bunch more stuff, but the stuff above is next on the hit list
+- `GoTo` for `Unit`s
+- No save/load functionality.
+- `Pollution` isn't implemented.
+- Probably a bunch more stuff
 
 ### Broken features
 
 - `Happiness` and `Unhappiness` don't work as per Civ1.
-- `Bomber`s don't function correctly and can be attacked by any units.
+- `Bomber`s don't function correctly, in fact there are a few problems with `Air` `Unit`s in general.
+- There's no `Anarchy` period when changing governments.
+- Some of the `Wonder`s don't actually do anything yet.
 
 ### Currently available
 
@@ -99,8 +103,8 @@ available, to A/D/M/V values for `Unit`s etc.
 
 ## TODO
 
-Loads! See [`TODO`](TODO.md) for the bigger ideas that are outstanding as well as looking for `// TODO` in the
-codebase.
+Loads! See [`TODO`](https://github.com/civ-clone/civ-clone/blob/master/TODO.md) for the bigger ideas that are
+outstanding as well as looking for `// TODO` in the codebase.
 
 ## Contributing
 

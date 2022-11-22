@@ -110,6 +110,12 @@
 - [X] `ClearForest` is broken (and presumably `ClearSwamp`, `ClearJungle`, `PlantForest` too)
 - [X] Modify `PlayerWorld` to clone the `Tile` on registration so that future changes aren't immediately visible (via `Rule`).
 - [X] Re-think the `Tile` `Yield`s, maybe `Happiness` etc don't need to be on all tiles unless specifically registered?
+- [X] Build a DataProvider mechanism to replace `transport.receive()` mechanism in `electron-renderer`.
+  - [X] Build a Transport mechanism to replace the basic transport object (ElectronTransport, or NetworkTransport, WorkerTransport would build on this for example)
+- [X] Create a WebClient.
+- [X] Add `Corruption` yield.
+- [X] Break `civ1-asset-extractor` down to be able to use as a library from within the renderer.
+- [X] Add city screens - Added CityStatus, HappinessReport and ScienceReport.
 - [ ] Look at modular AI info for plugin Unit providing data/weightings on what to do with the unit? `core-strategy` - in progress
   - [ ] Modify AI to adjust trade rates.
   - [ ] Add AI routine to avoid civil disorder.
@@ -129,12 +135,11 @@
 - [ ] Add benefits to 'we love the leader' day.
 - [ ] Investigate why units STILL trend north-east.
 - [ ] Add effects for `GreatWall`.
-- [ ] Add revolution delay in changing governments.
+- [ ] Add revolution delay in changing governments (`Anarchy`).
 - [ ] Add effects for `Pyramids`.
 - [ ] Add `Negotiation` to `core-diplomacy`.
 - [ ] Add more `Interaction`s and use this data to inform AI decisions on trusting another player.
 - [ ] Convert `activate`, `disband`, etc from methods to `Action`s for `Unit`s.
-- [ ] Add `Corruption` yield.
 - [ ] Add `GoTo` action for `Unit`s.
 - [ ] Add `CityWalls` `Defence` `YieldModifier`.
 - [ ] Look at availability build rules and change so all must pass so e.g. Spearman can be overridden to Phalanx for one Civ.
@@ -147,10 +152,13 @@
 - [ ] Add victory conditions.
 - [ ] Add `RuleSet`s and toggleable statuses for `Rule`s so that they can be easily toggled on/off in groups via the interface.
 - [ ] Add continent identifiers.
-- [ ] Break `civ1-asset-extractor` down to be able to use as a library from within the renderer.
 - [ ] Add renderer "Theme"s that could (for example) be Civ1, Civ2, FreeCiv, custom, etc.
-- [ ] Build a DataProvider mechanism to replace `transport.receive()` mechanism in `electron-renderer`.
-  - [ ] Build a Transport mechanism to replace the basic transport object (ElectronTransport, or NetworkTransport, WorkerTransport would build on this for example)
-  - [ ] Try keeping a large object around, and current strategy, make it easier to trial alternatives - perhaps track memory usage...
+- [ ] Try keeping a large object around, and current strategy, make it easier to trial alternatives - perhaps track memory usage...
 - [ ] Break down `ElectronClient` into another `Client` type that `ElectronClient` can inherit from.
-- [ ] Create a WebClient.
+- [ ] Add `Pollution`.
+- [ ] Add `civilDisorder` and `leaderCelebration` `AdditionalData` to `City`s.
+- [ ] Keep track of `CivilDisorder` and event when order is restored.
+- [ ] Keep state of `Bomber` return to `City` status.
+- [ ] Fix `Air` `Unit`s being attacked by `Land` `Unit`s.
+- [ ] Allow building `SpaceShip` parts.
+- [ ] Add `WonderHappiness` and `WonderContent` `City` `Yield`s.

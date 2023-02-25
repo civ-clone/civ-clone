@@ -116,6 +116,14 @@
 - [X] Add `Corruption` yield.
 - [X] Break `civ1-asset-extractor` down to be able to use as a library from within the renderer.
 - [X] Add city screens - Added CityStatus, HappinessReport and ScienceReport.
+- [X] Add benefits to 'we love the leader' day.
+- [X] Change `City`s to slice indices `0`, `4`, `20` amd `24` from the available `Tile` to match civ 1. Manage this via `Rule`s.
+- [X] Break down `ElectronClient` into another `Client` type that `ElectronClient` can inherit from.
+- [X] Add `civilDisorder` and `leaderCelebration` `AdditionalData` to `City`s.
+- [X] Keep track of `CivilDisorder` and event when order is restored.
+- [X] Keep state of `Bomber` return to `City` status.
+- [X] Fix `Air` `Unit`s being attacked by `Land` `Unit`s.
+- [X] Allow building `SpaceShip` parts.
 - [ ] Look at modular AI info for plugin Unit providing data/weightings on what to do with the unit? `core-strategy` - in progress
   - [ ] Modify AI to adjust trade rates.
   - [ ] Add AI routine to avoid civil disorder.
@@ -132,7 +140,6 @@
 - [ ] Add `load` and `save` methods to `World` - need to consider the available plugins when saving/loading - mandating the exact plugins seems too much, but need to consider this before working on this functionality.
 - [ ] Add ability to sell `CityImprovement`s.
 - [ ] Add `Caravan` and `Diplomat` and correctly exclude these from `city:cost`s. (`Diplomatic` type of `Unit`?)
-- [ ] Add benefits to 'we love the leader' day.
 - [ ] Investigate why units STILL trend north-east.
 - [ ] Add effects for `GreatWall`.
 - [ ] Add revolution delay in changing governments (`Anarchy`).
@@ -146,7 +153,6 @@
 - [ ] Add pathfinding tests where two comparable routes exist one taking advantage of roads etc
 - [ ] Add obsolescence and provider maps for `Unit`s, `CityImprovement`s, `Advance`s etc - This would help with displaying "civilopedia" data
 - [ ] Perhaps replace `Generator` (`core-world-generator`) with `Provider` and have `Generator` be a subset. Naming makes more sense for loaders that way...
-- [ ] Change `City`s to slice indices `0`, `4`, `20` amd `24` from the available `Tile` to match civ 1. Manage this via `Rule`s.
 - [ ] Look at using workers to generate worlds and pick start tiles to prevent UI blocking.
 - [ ] Break down interface to make it data driven and component based so that other plugins can easily extend the interface.
 - [ ] Add victory conditions.
@@ -154,11 +160,5 @@
 - [ ] Add continent identifiers.
 - [ ] Add renderer "Theme"s that could (for example) be Civ1, Civ2, FreeCiv, custom, etc.
 - [ ] Try keeping a large object around, and current strategy, make it easier to trial alternatives - perhaps track memory usage...
-- [ ] Break down `ElectronClient` into another `Client` type that `ElectronClient` can inherit from.
 - [ ] Add `Pollution`.
-- [ ] Add `civilDisorder` and `leaderCelebration` `AdditionalData` to `City`s.
-- [ ] Keep track of `CivilDisorder` and event when order is restored.
-- [ ] Keep state of `Bomber` return to `City` status.
-- [ ] Fix `Air` `Unit`s being attacked by `Land` `Unit`s.
-- [ ] Allow building `SpaceShip` parts.
 - [ ] Add `WonderHappiness` and `WonderContent` `City` `Yield`s.

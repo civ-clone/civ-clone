@@ -2,6 +2,8 @@
 
 Open source, plugin-driven, Civilization clone, written in TypeScript.
 
+Play online at https://civ-clone.github.io/ (Original game files required!)
+
 ## Aims
 
 The aims for this project are to:
@@ -29,14 +31,21 @@ Want to add custom units for the Mongols? Easy.
 
 The world generation is currently pretty rudimentary, but would be easy to replace with something else in the future.
 
+### Screenshots
+
+![Main menu](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/main-menu.png?raw=true)
+![City screen](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/city-screen.png?raw=true)
+![City screen showing build options](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/city-build.png?raw=true)
+![Game map showing a notification after capturing an enemy city](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/city-capture.png?raw=true)
+![Game map showing the Adjust Trade Rates menu](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/adjust-trade-rates.png?raw=true)
+![Game map with civ reports visible](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/civ-reports.png?raw=true)
+
 ### Missing features
 
 - Diplomatic negotiation (and `Diplomat`s)
 - `Caravan`s and trade routes
 - Save and load
-- Play on Earth
-- Charts and civilization-wide breakdowns/info
-- Changing the worked tiles in a city and employing entertainers/tax men, scientists
+- Choosing the worked tiles in a city and employing entertainers/tax men/scientists
 - Selling city improvements
 - Victory conditions
 - Palace
@@ -47,13 +56,12 @@ The world generation is currently pretty rudimentary, but would be easy to repla
 
 ### Broken features
 
-- `Happiness` and `Unhappiness` don't work as per Civ1.
-- `Bomber`s don't function correctly, in fact there are a few problems with `Air` `Unit`s in general.
 - There's no `Anarchy` period when changing governments.
 - Some of the `Wonder`s don't actually do anything yet.
 
 ### Currently available
 
+- Move units
 - Build cities and irrigate, mine, road the terrain
 - Build units, city improvements and wonders
 - Attack enemies and capture cities
@@ -64,29 +72,35 @@ The world generation is currently pretty rudimentary, but would be easy to repla
 - Civ 5-style notification system for delaying choosing advances/choosing what to build in cities
 - Change governments and utilise the features of each
 - Change the `Tax`, `Research`, `Luxuries` rates
+- Play on Earth
+- Some charts and civilization-wide breakdowns/info
 
-## How to get this running:
+## Get in touch
 
-### Prerequisites
+Feel free to ask anything in the discussions section of the organisation:
 
-- `node`, `npm` and `yarn` commands.
-- A copy of the original Civilization game files.
+https://github.com/civ-clone/civ-clone/discussions/new/choose
 
-__Note: `yarn` is recommended for the `electron-renderer` package again as `npm install`/`npm upgrade` seem to struggle
-to resolve without setting my machine on fire...__
+I'm also trying to post updates when there are any interesting changes, and I'll post screenshots of anything fun at the
+following thread:
 
-### Process
+https://forums.civfanatics.com/threads/yet-anther-clone.680494/latest
 
-Clone the [@civ-clone/electron-renderer](https://github.com/civ-clone/electron-renderer) and
-[@civ-clone/civ1-asset-extractor](https://github.com/civ-clone/civ1-asset-extractor) components, copy `TER257.PIC` and
-`SP257.PIC` files from the original game files into the root of where you cloned `civ1-asset-extractor`. 
+You can also follow this project to see when updates are made.
 
-Navigate via the commandline to that directory and run `npm install` and `node index.js`, which should install the
-required dependencies and generate all the required image assets in the `assets/` directory. That `assets/` directory
-needs to then be copied to the `electron-renderer` project into the `view/` directory.
+The web-renderer available at https://civ-clone.github.io/ shows a simple changelog when clicking on the version in the
+corner of the main menu too.
 
-Once the assets are in place, you need to navigate to the `electron-renderer` directory and run `yarn install` and
-`npm run start`. You should be good to go!
+## How to get this running
+
+The Electron renderer is currently decommissioned, but only whilst I'm working on the `web-renderer`. The aim is that
+the web-renderer will be split out separating the UI from the Engine further.
+
+The `web-renderer` is available to play online via:
+
+https://civ-clone.github.io/
+
+You currently need a copy of the original game files (`TER257.PIC` and `SP257.PIC`) to provide the basic assets.
 
 ## Core Concepts
 

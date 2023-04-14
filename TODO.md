@@ -124,19 +124,22 @@
 - [X] Keep state of `Bomber` return to `City` status.
 - [X] Fix `Air` `Unit`s being attacked by `Land` `Unit`s.
 - [X] Allow building `SpaceShip` parts.
+- [X] i18n/l10n - tied to renderer.
+- [X] Add diplomacy
+- [X] Add `Negotiation` to `core-diplomacy`.
+- [X] Add more `Interaction`s and use this data to inform AI decisions on trusting another player.
+- [X] Fix bug where Hold does not deplete
 - [ ] Look at modular AI info for plugin Unit providing data/weightings on what to do with the unit? `core-strategy` - in progress
   - [ ] Modify AI to adjust trade rates.
   - [ ] Add AI routine to avoid civil disorder.
   - [ ] Break `SimpleAIPlayer` down into smaller routines.
   - [ ] Use `Leader` `Trait`s to control `AIClient` functionality.
 - [ ] Abstract World class to allow implementation of hexes rather than squares and other world generators.
-- [ ] i18n/l10n - tied to renderer.
 - [ ] Remote network players.
 - [ ] Difficulties.
 - [ ] Write more tests.
 - [ ] Feature parity with Civilization.
 - [ ] Add Barbarians.
-- [ ] Add diplomacy
 - [ ] Add `load` and `save` methods to `World` - need to consider the available plugins when saving/loading - mandating the exact plugins seems too much, but need to consider this before working on this functionality.
 - [ ] Add ability to sell `CityImprovement`s.
 - [ ] Add `Caravan` and `Diplomat` and correctly exclude these from `city:cost`s. (`Diplomatic` type of `Unit`?)
@@ -144,8 +147,6 @@
 - [ ] Add effects for `GreatWall`.
 - [ ] Add revolution delay in changing governments (`Anarchy`).
 - [ ] Add effects for `Pyramids`.
-- [ ] Add `Negotiation` to `core-diplomacy`.
-- [ ] Add more `Interaction`s and use this data to inform AI decisions on trusting another player.
 - [ ] Convert `activate`, `disband`, etc from methods to `Action`s for `Unit`s.
 - [ ] Add `GoTo` action for `Unit`s.
 - [ ] Add `CityWalls` `Defence` `YieldModifier`.

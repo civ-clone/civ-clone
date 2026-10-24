@@ -2,125 +2,123 @@
 
 Open source, plugin-driven, Civilization clone, written in TypeScript.
 
-Play online at https://civ-clone.github.io/ (Original game files required!)
+**Play online at [civ.one](https://civ.one).** You need the graphics from an
+original copy of Civilization (1991): the main menu's **Import assets** reads
+`TER257.PIC` and `SP257.PIC` in your browser, and nothing is uploaded.
 
 ## Aims
 
-The aims for this project are to:
+- Build a working clone of the original Civilization, using v474.05 of the game
+  as the reference where its rules are in question, with a modern interface
+  over the top where the original's gets in the way.
+- Make the engine extensible enough that concepts from any Civilization game can
+  be written and included or excluded: a Civ1 map with Civ2 units, say.
+- Keep the engine apart from any renderer, so it can run a headless, AI-driven
+  game, a game in a browser, or one day a networked game.
+- Let third parties contribute plugins.
 
-- build a working clone of the original Civilization.
-- make the engine extensible enough that concepts from any Civilization game can be written and included or excluded.
-- make the engine decoupled from a renderer so that it's possible to run a headless, AI-driven game, as well as a single
-  or multi-player game driven via either a rich GUI or even command-line.
-- allow third-party contributed plugins to augment the game.
+## Where things are
 
-## Current State
+The game is one engine spread over small packages, each its own repository in
+this organisation, so that any rule can be replaced. The names say what a
+package is:
 
-This originally started as: [`@dom111/civ-clone`](https://github.com/dom111/civ-clone). The historical commits here will
-provide insight into where a lot of the core concepts have originated and might be interest.
+| Prefix | Roughly how many | What they hold |
+| ------ | ---------------- | -------------- |
+| `core-*` | 47 | The engine's abstract parts: players, cities, units, tiles, the registries that hold them, `Rule`s, the turn loop, saving and loading. No game content. |
+| `base-*` | 304 | One concrete thing each: a unit type, a city improvement, a terrain, a wonder, a government, an AI strategy. |
+| `library-*` | 9 | Helpers several packages share, for units, cities, diplomacy, strategy, government, wonders, the world, science and civilizations. |
+| `civ1-*` | 26 | Civilization (1991) itself: its civilizations and leaders, science, government, happiness, trade, combat, barbarians, the game's ending. |
+| `simple-*` | 4 | The default computer players (`simple-ai-client`, `simple-ai-strategy-client`), world generator and pathing. |
+| [`web-renderer`](https://github.com/civ-clone/web-renderer) | 1 | The game you play: the page, and a Web Worker running the engine with everything above. |
 
-All plugins are written in TypeScript and future ones will be too. An Electron renderer has been started and is in a
-working state. The `Client`s are set up in such a way that adding a networked client should be possible (ignoring all
-the potential networking specific problems!). The assets are currently generated using the original game's assets.
+Everything a person needs to download is in `web-renderer`; the rest are its
+npm dependencies. **Start with its
+[quick start](https://github.com/civ-clone/web-renderer/blob/main/docs/quick-start.md)**,
+which covers running the game locally, changing the renderer, and changing an
+engine package and shipping it with the `civ` tool.
 
-The current flow is that a string of dependencies are utilised so that, for example, `civ-clone-electron` would depend
-on `electron-renderer` and the `civ1-*` packages and would be able to give an experience that's comparable with the
-original Civilization. Then the aim would be to make similar packages for the other Civilization games so that all the
-core concepts and functionality can be easily transplanted to older games. Like Civ1 but want to add religion? Done.
-Want to add custom units for the Mongols? Easy.
+Also here: [`electron-renderer`](https://github.com/civ-clone/electron-renderer),
+the first renderer, decommissioned when the browser version took over;
+[`web-renderer-rewrite`](https://github.com/civ-clone/web-renderer-rewrite), a
+spec-driven experiment whose findings fed the current renderer;
+[`interactive-map-generator-test`](https://github.com/civ-clone/interactive-map-generator-test),
+a playground for the world generator; and
+[`package-template`](https://github.com/civ-clone/package-template), the
+skeleton of a new package.
 
-The world generation is currently pretty rudimentary, but would be easy to replace with something else in the future.
+## What's in the game
+
+Civilization's rules, as far as we know them: movement and combat, cities with
+their worked tiles, specialists, happiness and disorder, improvements and
+wonders with their effects, science and governments with anarchy between them,
+trade rates, caravans and trade routes, diplomats and embassies, diplomacy and
+war between civilizations, barbarians, goody huts, pollution, the space race,
+conquest, scoring and the Hall of Fame,
+civilizations respawning after an early defeat, and the Civilopedia. All of the
+original's civilizations and leaders and a set of the world's, each with its
+colours, on random worlds of five sizes or Earth at three.
+
+Around it: a game setup where each seat is a human or a computer player with its
+civilization chosen or random, an observer mode that watches a game with no
+human player as any of its civilizations or as the whole map and can pause it
+between turns, save and load that remember who played each seat and let you
+reassign them, difficulty levels, automated settlers and exploration, cheats,
+release notes in the game, and British English.
+
+Not yet: hot-seat and network play (#161–#165), hex and isometric maps with
+other tilesets (#86), renderer themes (#167), and the long tail in the
+[issues](https://github.com/civ-clone/web-renderer/issues). The computer
+players are simple, and better ones are an ongoing thread of work.
 
 ### Screenshots
 
 ![Main menu](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/main-menu.png?raw=true)
+![Game setup](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/game-setup.png?raw=true)
+![Game map](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/game-map.png?raw=true)
 ![City screen](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/city-screen.png?raw=true)
-![City screen showing build options](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/city-build.png?raw=true)
-![Game map showing a notification after capturing an enemy city](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/city-capture.png?raw=true)
-![Game map showing the Adjust Trade Rates menu](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/adjust-trade-rates.png?raw=true)
-![Game map with civ reports visible](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/civ-reports.png?raw=true)
+![Choosing what a city builds](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/city-build.png?raw=true)
+![City Status report](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/civ-reports.png?raw=true)
+![Adjusting the trade rates](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/adjust-trade-rates.png?raw=true)
+![Watching a game as the whole map](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/observer-whole-map.png?raw=true)
+![Loading a save: who plays each seat](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/resume-seats.png?raw=true)
+![Civilopedia](https://github.com/civ-clone/civ-clone/blob/master/Screenshots/civilopedia.png?raw=true)
 
-### Missing features
+## Core concepts
 
-- Diplomatic negotiation (and `Diplomat`s)
-- `Caravan`s and trade routes
-- Save and load
-- Choosing the worked tiles in a city and employing entertainers/tax men/scientists
-- Selling city improvements
-- Victory conditions
-- Palace
-- `GoTo` for `Unit`s
-- No save/load functionality.
-- `Pollution` isn't implemented.
-- Probably a bunch more stuff
+**Packages.** A component's whole logic is a stand-alone package. `core-*`
+packages expose base classes, interfaces and registries; `base-*` and `civ1-*`
+packages implement and extend them. A game is assembled from whichever are
+installed: the renderer's build generates its plugin list from its
+`package.json`.
 
-### Broken features
+**Rules.** `Rule`s control every interaction: how yields are counted and
+accumulated, which governments are available, what a unit's attack, defence and
+movement are, what a city can build, what happens when a player is defeated.
+Each is `Criterion`s and `Effect`s registered with the game's rule registry, so
+a package can add to, replace or disable another's behaviour.
 
-- There's no `Anarchy` period when changing governments.
-- Some of the `Wonder`s don't actually do anything yet.
-
-### Currently available
-
-- Move units
-- Build cities and irrigate, mine, road the terrain
-- Build units, city improvements and wonders
-- Attack enemies and capture cities
-- Discover Advances
-- Unit obsolescence
-- Goody huts (Gold, Advance, Unit - Horseman or Swordman, Advanced Tribe)
-- All 14 Civilizations from the original game (with "modern" city names - where applicable)
-- Civ 5-style notification system for delaying choosing advances/choosing what to build in cities
-- Change governments and utilise the features of each
-- Change the `Tax`, `Research`, `Luxuries` rates
-- Play on Earth
-- Some charts and civilization-wide breakdowns/info
+**Engine and renderer.** The engine knows nothing of the page. The renderer
+runs it in a Web Worker, sends the page what each player may see, and sends back
+the player's actions; the computer players are clients of the same kind. That
+is what will let a networked client be another kind of client.
 
 ## Get in touch
 
-Feel free to ask anything in the discussions section of the organisation:
-
-https://github.com/civ-clone/civ-clone/discussions/new/choose
-
-I'm also trying to post updates when there are any interesting changes, and I'll post screenshots of anything fun at the
-following thread:
-
-https://forums.civfanatics.com/threads/yet-anther-clone.680494/latest
-
-You can also follow this project to see when updates are made.
-
-The web-renderer available at https://civ-clone.github.io/ shows a simple changelog when clicking on the version in the
-corner of the main menu too.
-
-## How to get this running
-
-The Electron renderer is currently decommissioned, but only whilst I'm working on the `web-renderer`. The aim is that
-the web-renderer will be split out separating the UI from the Engine further.
-
-The `web-renderer` is available to play online via:
-
-https://civ-clone.github.io/
-
-You currently need a copy of the original game files (`TER257.PIC` and `SP257.PIC`) to provide the basic assets.
-
-## Core Concepts
-
-### Packages
-
-The entirety of the logic for a component is provided via a stand-alone package, some are `core` or `base` which are the
-primary components of the game itself and would need a suitable replacement to be removed, but should be possible to
-augment as required. `core-*` packages only expose base classes/interfaces which `base-*` packages implement and extend.
-
-### Rules
-
-`Rule`s should control all the interactions from how resources are counted and accumulated, to what governments are
-available, to A/D/M/V values for `Unit`s etc. 
-
-## TODO
-
-Loads! See [`TODO`](https://github.com/civ-clone/civ-clone/blob/master/TODO.md) for the bigger ideas that are
-outstanding as well as looking for `// TODO` in the codebase.
+Ask anything in the organisation's
+[discussions](https://github.com/civ-clone/civ-clone/discussions), or report a
+problem on [`web-renderer`'s issues](https://github.com/civ-clone/web-renderer/issues),
+whichever package turns out to be at fault: that is where the work is tracked.
+Updates and screenshots go to the thread on
+[CivFanatics](https://forums.civfanatics.com/threads/yet-anther-clone.680494/latest),
+and the game shows its own release notes when you click the version in the corner
+of the main menu.
 
 ## Contributing
 
-To contribute to the project, fork the relevant repo, create a branch and make your changes. Once you are happy with
-them, ensure that `npm run build` (or `yarn build`) runs successfully and open a PR!
+Fork the repository in question, branch, make your change, and open a pull
+request: against `main` for `web-renderer`, against `master` for an engine
+package. The
+[quick start](https://github.com/civ-clone/web-renderer/blob/main/docs/quick-start.md)
+has the tooling and the checks each kind of change needs, and
+[`TODO.md`](./TODO.md) says where the project is and what is next.

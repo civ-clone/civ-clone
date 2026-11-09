@@ -122,3 +122,4 @@ package. The
 [quick start](https://github.com/civ-clone/web-renderer/blob/main/docs/quick-start.md)
 has the tooling and the checks each kind of change needs, and
 [`TODO.md`](./TODO.md) says where the project is and what is next.
+[`HISTORY.md`](./HISTORY.md) says how it got here, from 2016 on.
